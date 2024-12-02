@@ -43,7 +43,7 @@ Tenants"0..*" -- "1..*"Reservations: réserve
 Owners"1..*" -- "1..1"Listings: possède
 Listings"0..*" -- "1..*"Reservations: appartient
 Listings"1..*" -- "0..*"Accommodations: appartient
-Listings"1..1" -- Accommodations: appartient
+Listings"1..1" -- City: appartient
 Departments"1..*" -- "1..1"City: appartient
 City"1..*" -- "1..1"Accommodations: appartient
     
