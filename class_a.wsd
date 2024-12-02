@@ -1,24 +1,23 @@
 @startuml DIAGRAMMECLASS
 
-  class Users {
-  - id : int
-  - lastName : string
-  - firstName : string
-  - email : string
-  - password : string
-  - phone : string
-  - createdAt : date
-  - updatedAt : date
+  class Users {
+  - id : int
+  - lastName : string
+  - firstName : string
+  - email : string
+  - password : string
+  - phone : string
+  - createdAt : date
+  - updatedAt : date
 
-
-  + getId() : int
-  + getLastName() : string
-  + getFirstName() : string
-  + getEmail() : string
-  + getPassword() : string
-  + getPhone() : string
-  + getCreatedAt() : date
-  + getUpdatedAt() : date
+  + getId() : int
+  + getLastName() : string
+  + getFirstName() : string
+  + getEmail() : string
+  + getPassword() : string
+  + getPhone() : string
+  + getCreatedAt() : date
+  + getUpdatedAt() : date
 
 }
 
@@ -74,18 +73,18 @@ class Listings {
 
 
 class Departments {
-    - id : int
-    - postalCode : int
+    - id : int
+    - postalCode : int
 
-    + getId() : int
-    + getPostalCode() : int
+    + getId() : int
+    + getPostalCode() : int
 }
 class City {
-    - id : int
-    - name : string
+    - id : int
+    - name : string
 
-    + getId() : int
-    + getName() : string
+    + getId() : int
+    + getName() : string
 }
 Tenants"0..*" -- "1..*"Reservations: réserve
 Owners"1..*" -- "1..1"Listings: possède
@@ -94,5 +93,5 @@ Listings"1..*" -- "0..*"Accommodations: appartient
 Listings"1..1" -- Accommodations: appartient
 Departments"1..*" -- "1..1"City: appartient
 City"1..*" -- "1..1"Accommodations: appartient
-    
+    
 @enduml
