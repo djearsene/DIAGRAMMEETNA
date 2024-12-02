@@ -1,44 +1,104 @@
 @startuml DIAGRAMMECLASS
 
-  class Users {
-  - id : int
-  - lastName : string
-  - firstName : string
-  - email : string
-  - password : string
-  - phone : string
-  - createdAt : date
-  - updatedAt : date
+  class Users {
+  - id : int
+  - lastName : string
+  - firstName : string
+  - email : string
+  - password : string
+  - phone : string
+  - createdAt : date
+  - updatedAt : date
 
-
-  + getId() : int
-  + getLastName() : string
-  + getFirstName() : string
-  + getEmail() : string
-  + getPassword() : string
-  + getPhone() : string
-  + getCreatedAt() : date
-  + getUpdatedAt() : date
+  + getId() : int
+  + getLastName() : string
+  + getFirstName() : string
+  + getEmail() : string
+  + getPassword() : string
+  + getPhone() : string
+  + getCreatedAt() : date
+  + getUpdatedAt() : date
 
 }
 
+class Reservations {
+  - id : int
+  - startDate : date
+  - endDate : date
+  - createdAt : date
+  - updatedDate : date
+  - numberOfDays : int
+
+  + getId() : int
+  + getStartDate() : date
+  + getEndDate() : date
+  + getCreatedAt() : date
+  + getDateUpdate() : date
+}
+
+enum typeReservations {
+  SHORTDURATION
+  LONGDURATION
+}
+
+class Listings {
+  - id : int
+  - createdAt : date
+  - updatedAt : date
+  - image : string
+
+  + getId() : int
+  + getCreatedAt() : date
+  + getUpdatedAt() : date
+  + getImage() : string
+}
+
+class Accommodations {
+  - id : int
+  - postalCode : string
+  - department : string
+  - city : string
+  - availability : boolean
+  - numberOfRooms : int
+  - floorNumber : int
+  - rentPrice : float
+  - balcony : boolean
+  - garage : boolean
+  - shower : boolean
+  - elevator : boolean
+  - nextToNeighbor : boolean
+  - chargesIncluded : boolean
+  
+  + getId() : int
+  + getFullAddress() : string
+  + isAvailable() : boolean
+  + getNumberOfRooms() : int
+  + getFloorNumber() : int
+  + getRentPrice() : float
+  + getBalcony() : boolean
+  + getElevator() : boolean
+  + getNextToNeighbor() : boolean
+  + getChargesIncluded() : boolean
+  }
+enum typeLogement {
+  APARTMENT
+  HOUSE
+}
 
 class Departments {
-    - id : int
-    - postalCode : int
+    - id : int
+    - postalCode : int
 
-    + getId() : int
-    + getPostalCode() : int
+    + getId() : int
+    + getPostalCode() : int
 }
-
 class City {
-    - id : int
-    - name : string
+    - id : int
+    - name : string
 
-    + getId() : int
-    + getName() : string
+    + getId() : int
+    + getName() : string
 }
-
 Tenants"0..*" -- "1..*"Reservations: réserve
 Owners"1..*" -- "1..1"Listings: possède
 Listings"0..*" -- "1..*"Reservations: appartient
@@ -46,5 +106,5 @@ Listings"1..*" -- "0..*"Accommodations: appartient
 Listings"1..1" -- Accommodations: appartient
 Departments"1..*" -- "1..1"City: appartient
 City"1..*" -- "1..1"Accommodations: appartient
-    
+    
 @enduml
